@@ -18,6 +18,7 @@ board = [
 
 # backtracking Algorithm
 # asdasdasd
+# suduku class
 # Starting with an incomplete board:
 
 # Find some empty space using Find_empty
