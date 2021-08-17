@@ -1,6 +1,7 @@
 from typing import Optional
 from sudoku import Sudoku
 import numpy as np
+from solvers import NaiveSolver
 
 # define a matrix of 9*9 with which will represent our Sudoku Board
 # in Constraint satisfaction Problem POV:
