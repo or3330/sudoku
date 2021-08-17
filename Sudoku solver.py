@@ -17,7 +17,7 @@ board = [
 
 
 # backtracking Algorithm
-# asdasdasd
+
 # Starting with an incomplete board:
 
 # Find some empty space using Find_empty
