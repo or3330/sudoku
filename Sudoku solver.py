@@ -1,7 +1,5 @@
 from typing import Optional
 
-
-
 # define a matrix of 9*9 with which will represent our Sudoku Board
 # in Constraint satisfaction Problem POV:
 # VARIABLES = each 0 represents a empty space on the sudoku board
@@ -20,7 +18,7 @@ board = [
 ]
 
 
-def solve(matrix:list) -> bool:
+def solve(matrix: list) -> bool:
     """
     solves the suduko board using backtracking
     :param matrix: sudoku board
@@ -30,7 +28,7 @@ def solve(matrix:list) -> bool:
     empty_pos = find_empty_block(matrix=matrix)
 
     # if we don't have a next empty its means we have a solution for the sudoku board
-    #recursion ending condition
+    # recursion ending condition
     if not empty_pos:
         return True
     else:
@@ -52,7 +50,7 @@ def solve(matrix:list) -> bool:
 
 
 # printing Function prints the Sudoku board to the terminal
-def print_matrix(matrix:list):
+def print_matrix(matrix: list):
     for i in range(len(matrix)):
 
         # after every 3 rows it will draw horizontal line
@@ -71,8 +69,7 @@ def print_matrix(matrix:list):
                 print(str(matrix[i][j]) + " ", end="")
 
 
-
-def find_empty_block(matrix:list) -> Optional[tuple]:
+def find_empty_block(matrix: list) -> Optional[tuple]:
     """
     finds the next empty position in the matrix and returns it if exist
     :param matrix:
@@ -81,11 +78,11 @@ def find_empty_block(matrix:list) -> Optional[tuple]:
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
             if matrix[i][j] == 0:
-                return i,j  # returning the row and col from this function
+                return i, j  # returning the row and col from this function
     return None
 
 
-def valid(matrix:list, num:int, pos:tuple):
+def valid(matrix: list, num: int, pos: tuple):
     """
     this function checks the Constrains on every number that we try in the way to the solution
     :param matrix:
