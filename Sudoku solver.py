@@ -17,6 +17,7 @@ board = [
 
 
 # backtracking Algorithm
+# suduku class
 
 # Starting with an incomplete board:
 
