@@ -41,3 +41,21 @@ class Sudoku:
                     return False
 
         return True
+
+    def print_board(self):
+        for i in range(len(self._board)):
+
+            # after every 3 rows it will draw horizontal line
+            if (i % 3 == 0) and i != 0:
+                print("- - - - - - - - - - - - - - - -")
+
+            for j in range(len(self._board[0])):
+
+                # after every 3 Columns it will draw a diagonal line
+                if j % 3 == 0 and j != 0:
+                    print(" | ", end="")
+
+                if j == 8:
+                    print(self._board[i][j])
+                else:
+                    print(str(self._board[i][j]) + " ", end="")

@@ -1,4 +1,6 @@
 from typing import Optional
+from sudoku import Sudoku
+import numpy as np
 
 # define a matrix of 9*9 with which will represent our Sudoku Board
 # in Constraint satisfaction Problem POV:
@@ -114,10 +116,11 @@ def valid(matrix: list, num: int, pos: tuple):
 
 # main
 def main():
-    print_matrix(board)
+    sudoku = Sudoku(board=np.array(board))
+    sudoku.print_board()
     solve(board)
     print("\n---------------------------------------------------------------------------------\n")
-    print_matrix(board)
+    sudoku.print_board()
 
 
 main()
