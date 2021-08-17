@@ -1,3 +1,7 @@
+from typing import Optional
+
+
+
 # define a matrix of 9*9 with which will represent our Sudoku Board
 # in Constraint satisfaction Problem POV:
 # VARIABLES = each 0 represents a empty space on the sudoku board
@@ -16,47 +20,39 @@ board = [
 ]
 
 
-# backtracking Algorithm
-# suduku class
-
-# Starting with an incomplete board:
-
-# Find some empty space using Find_empty
-# Attempt to place the digits 1-9 in that space
-# Check if that digit is valid in the current spot based on the current board
-# a. If the digit is valid, recursively attempt to fill the board using steps 1-3.
-# b. If it is not valid, reset the square you just filled and go back to the previous step.
-# Once the board is full by the definition of this algorithm we have found a solution.
-
-# Functions
-
-def solve(matrix):
+def solve(matrix:list) -> bool:
+    """
+    solves the suduko board using backtracking
+    :param matrix: sudoku board
+    :return: bool
+    """
     # returns the next empty block by its row and col as (i,j)
-    find = find_empty(matrix)
+    empty_pos = find_empty_block(matrix=matrix)
 
     # if we don't have a next empty its means we have a solution for the sudoku board
     #recursion ending condition
-    if not find:
+    if not empty_pos:
         return True
     else:
-        row, col = find
+        row, col = empty_pos
 
     # adding new element and checking if its valid
     for i in range(1, 10):
         if valid(matrix, i, (row, col)):
             matrix[row][col] = i
+        else:
+            continue
 
         # recursive call for solve with the new board
         if solve(matrix):
             return True
 
-        matrix[row][col] = 0
-
+    matrix[row][col] = 0
     return False
 
 
 # printing Function prints the Sudoku board to the terminal
-def print_matrix(matrix):
+def print_matrix(matrix:list):
     for i in range(len(matrix)):
 
         # after every 3 rows it will draw horizontal line
@@ -75,21 +71,28 @@ def print_matrix(matrix):
                 print(str(matrix[i][j]) + " ", end="")
 
 
-# this function finds the next empty space in the matrix ( 0 = Variable)
-def find_empty(matrix):
-    # ordinary search in nested loop time complexity of O(1) = O(9*9)
+
+def find_empty_block(matrix:list) -> Optional[tuple]:
+    """
+    finds the next empty position in the matrix and returns it if exist
+    :param matrix:
+    :return:
+    """
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
             if matrix[i][j] == 0:
-                return (i,j)  # returning the row and col from this function
-
+                return i,j  # returning the row and col from this function
     return None
 
 
-# this function checks the Constrains on every number that we try in the way to the solution
-def valid(matrix, num, pos):
-    # check row- checks that the current number that entered answers the Sudoku rules
-    # (each row and each col must contain all integer's from 1-9 no duplicates
+def valid(matrix:list, num:int, pos:tuple):
+    """
+    this function checks the Constrains on every number that we try in the way to the solution
+    :param matrix:
+    :param num:
+    :param pos:
+    :return:
+    """
 
     for i in range(len(matrix[0])):
         if matrix[pos[0]][i] == num and pos[1] != i:
