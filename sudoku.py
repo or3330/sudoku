@@ -5,6 +5,9 @@ class Sudoku:
     def __init__(self, board: np.array):
         self._board = board
 
+    def __len__(self):
+        return len(self._board)
+
     def set_value(self, pos: tuple, value: int) -> bool:
         if not self._is_valid(pos=pos, value=value):
             return False
@@ -22,6 +25,9 @@ class Sudoku:
         :param pos:
         :return:
         """
+        if value == 0:
+            return True
+
         for i in range(len(self._board[0])):
             if self._board[pos[0]][i] == value and pos[1] != i:
                 return False
