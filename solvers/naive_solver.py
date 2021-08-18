@@ -15,12 +15,10 @@ class NaiveSolver(BaseSolver):
         if not empty_pos:
             return True
 
-        # adding new element and checking if its valid
         for i in range(1, 10):
             if not self._sudoku.set_value(pos=empty_pos, value=i):
                 continue
 
-            # recursive call for solve with the new board
             if self.run():
                 return True
 
