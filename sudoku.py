@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 
 
 class Sudoku:
@@ -53,7 +54,7 @@ class Sudoku:
 
             # after every 3 rows it will draw horizontal line
             if (i % 3 == 0) and i != 0:
-                print("- - - - - - - - - - - - - - - -")
+                print("- - - - - - - - - - - - ")
 
             for j in range(len(self._board[0])):
 
@@ -65,3 +66,12 @@ class Sudoku:
                     print(self._board[i][j])
                 else:
                     print(str(self._board[i][j]) + " ", end="")
+
+
+
+    def read_from_DB(self, ):
+        pass
+
+
+    def write_sol_to_db(self):
+        pass

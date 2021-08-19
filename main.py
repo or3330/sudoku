@@ -1,6 +1,11 @@
+import csv
+import random
+
 from sudoku import Sudoku
 import numpy as np
 from solvers import NaiveSolver
+import random
+from numpy import genfromtxt
 
 board = [
     [7, 8, 0, 4, 0, 0, 1, 2, 0],
@@ -15,6 +20,26 @@ board = [
 ]
 
 
+
+def load_board():
+    csv_file = np.genfromtxt('input/sudoku.csv', delimiter=",")
+    first_col = csv_file[:, 0]
+    second_col = csv_file[:, 1]
+    random_row = random.randint(0, 10000)
+    single_board = np.array(first_col[random_row])
+
+    print("\n---------------------------------------------------------------------------------\n")
+    print(first_col)
+    print("\n---------------------------------------------------------------------------------\n")
+    print(second_col)
+    print("\n---------------------------------------------------------------------------------\n")
+    print(random_row)
+    print("\n---------------------------------------------------------------------------------\n")
+
+
+    return single_board
+
+
 def main():
     sudoku = Sudoku(board=np.array(board))
     sudoku.print_board()
@@ -22,6 +47,9 @@ def main():
     naive_solver.run()
     print("\n---------------------------------------------------------------------------------\n")
     sudoku.print_board()
+    print("\n---------------------------------------------------------------------------------\n")
+    load_board()
+
 
 
 main()
