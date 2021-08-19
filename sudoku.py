@@ -53,7 +53,7 @@ class Sudoku:
 
             # after every 3 rows it will draw horizontal line
             if (i % 3 == 0) and i != 0:
-                print("- - - - - - - - - - - - - - - -")
+                print("- - - - - - - - - - - - ")
 
             for j in range(len(self._board[0])):
 
