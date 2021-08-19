@@ -1,8 +1,7 @@
 from sudoku import Sudoku
+from typing import Tuple
 
 
 class BaseLoader:
-
-    def __init__(self, file):
-
-        self.file = file
+    def load(self) -> Tuple[Sudoku, Sudoku]:
+        raise NotImplementedError('load not implemented')
