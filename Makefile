@@ -5,4 +5,4 @@ lint:
 	flake8 --max-line-length=120
 
 clean:
-    git clean -dfx
+	git clean -dfx
