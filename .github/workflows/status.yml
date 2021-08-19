@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install flake
+      run: pip install flake8
     - name: Checkout
       uses: actions/checkout@v2
       with:
