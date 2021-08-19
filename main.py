@@ -1,5 +1,3 @@
-from sudoku import Sudoku
-import numpy as np
 from solvers import NaiveSolver
 from loaders import CsvLoader
 

@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 
 
 class Sudoku:
@@ -66,12 +65,3 @@ class Sudoku:
                     print(self._board[i][j])
                 else:
                     print(str(self._board[i][j]) + " ", end="")
-
-
-
-    def read_from_DB(self, ):
-        pass
-
-
-    def write_sol_to_db(self):
-        pass
