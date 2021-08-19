@@ -1,3 +1,3 @@
-from .sudoku_csv_loader import CsvLoader
+from .csv_loader import CsvLoader
 
 __all__ = ['CsvLoader']
