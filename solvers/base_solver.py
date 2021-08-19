@@ -6,4 +6,4 @@ class BaseSolver:
         self._sudoku = sudoku
 
     def run(self):
-        raise NotImplemented('run not implemented')
+        raise NotImplementedError('run not implemented')
