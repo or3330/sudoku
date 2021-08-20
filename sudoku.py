@@ -2,7 +2,7 @@ import numpy as np
 
 
 class Sudoku:
-    def __init__(self, board: np.array):
+    def __init__(self, board: np.array) -> object:
         self._board = board
 
     def __len__(self):
