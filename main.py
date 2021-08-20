@@ -35,4 +35,3 @@ if __name__ == '__main__':
 
     print(f'Wise solver time: {wise_time} seconds')
     print(f'Naive solver time: {naive_time} seconds')
-
