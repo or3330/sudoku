@@ -8,10 +8,12 @@ import numpy as np
 
 class CsvLoader(BaseLoader):
     def __init__(self):
+        #generic way to find the path to find the input/sudoku.csv file
         self._file = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'input', 'sudoku.csv')
         self._length = 10000
         self._sudoku_size = 9
 
+    #takes a random row from, the csv file and return it as 2 numpy 9*9 matrix
     def load(self) -> Tuple[Sudoku, Sudoku]:
         """
         :return: Unsolved Sudoku, solved Sudoku
