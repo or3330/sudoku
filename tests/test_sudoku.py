@@ -22,6 +22,6 @@ class Sudoku_test(unittest.TestCase):
         value = sudoku.get_value(pos=(3, 2))
         expected_value = test_board[3][2]
         self.assertEqual(first=value, second=expected_value)
-        self.assertTrue(expr=sudoku.set_value(pos=(0, 2), value=9))
+        self.assertTrue(expr=sudoku.set_value(pos=(0, 2), value=5))
         self.assertFalse(expr=sudoku.set_value(pos=(0, 4), value=7))
         self.assertFalse(expr=sudoku.is_valid(pos=(0, 4), value=7))
