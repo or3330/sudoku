@@ -14,6 +14,7 @@ class CsvLoader(BaseLoader):
 
     def load(self) -> Tuple[Sudoku, Sudoku]:
         """
+        takes a random row from, the csv file and return it as 2 numpy 9*9 matrix
         :return: Unsolved Sudoku, solved Sudoku
         """
         with open(self._file, 'r') as file:
