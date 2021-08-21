@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-import sudoku
+from sudoku import Sudoku
 
 test_board = [
     [7, 8, 0, 4, 0, 0, 1, 2, 0],
@@ -16,8 +16,12 @@ test_board = [
 
 
 class Sudoku_test(unittest.TestCase):
-    @staticmethod
-    def test_Sudoku():
-        SudokuTest = sudoku.Sudoku(np.array(test_board))
-        SudokuTest.print_board()
-        SudokuTest.get_value(pos=(3, 2))
+    def test_sudoku(self):
+        sudoku = Sudoku(np.array(test_board))
+        sudoku.print_board()
+        value = sudoku.get_value(pos=(3, 2))
+        expected_value = test_board[3][2]
+        self.assertEqual(first=value, second=expected_value)
+        self.assertTrue(expr=sudoku.set_value(pos=(0, 2), value=9))
+        self.assertFalse(expr=sudoku.set_value(pos=(0, 4), value=7))
+        self.assertFalse(expr=sudoku.is_valid(pos=(0, 4), value=7))
