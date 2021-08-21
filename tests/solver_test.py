@@ -1,5 +1,5 @@
 import unittest
-from solvers import naive_solver, NaiveSolver
+from solvers import NaiveSolver
 import numpy as np
 import sudoku
 
