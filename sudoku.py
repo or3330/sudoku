@@ -9,7 +9,7 @@ class Sudoku:
         return len(self._board)
 
     def set_value(self, pos: tuple, value: int) -> bool:
-        if not self._is_valid(pos=pos, value=value):
+        if not self.is_valid(pos=pos, value=value):
             return False
         self._board[pos] = value
         return True
@@ -17,12 +17,11 @@ class Sudoku:
     def get_value(self, pos: tuple) -> int:
         return self._board[pos]
 
-    def _is_valid(self, pos: tuple, value: int) -> bool:
+    def is_valid(self, pos: tuple, value: int) -> bool:
         """
         this function checks the Constrains on every number that we try in the way to the solution
-        :param self._board:
-        :param value:
         :param pos:
+        :param value:
         :return:
         """
         if value == 0:
