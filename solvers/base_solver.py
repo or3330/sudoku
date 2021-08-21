@@ -1,4 +1,5 @@
 from sudoku import Sudoku
+import time
 
 
 class BaseSolver:
@@ -7,3 +8,8 @@ class BaseSolver:
 
     def run(self):
         raise NotImplementedError('run not implemented')
+
+    def run_with_time_analysis(self):
+        start_time = time.time()
+        self.run()
+        return time.time() - start_time
