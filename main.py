@@ -1,9 +1,7 @@
-from solvers import NaiveSolver, WiseSolver
-from loaders import CsvLoader
-
-
-
 from copy import deepcopy
+
+from loaders import CsvLoader
+from solvers import NaiveSolver, WiseSolver
 
 if __name__ == '__main__':
     sudoku, solved_sudoku = CsvLoader().load()
